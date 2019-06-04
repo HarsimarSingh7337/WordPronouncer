@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".MainActivity"
+    android:id="@+id/coordinator_layout">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/admob_container"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.gms.ads.AdView
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                ads:adSize="SMART_BANNER"
+                ads:adUnitId="ca-app-pub-9256359379064593/2363311136" />
+
+        </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/firstContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/_70sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        android:elevation="@dimen/_24sdp" >
+
+        <TextView
+            android:id="@+id/label0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Learn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center_horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="@dimen/_32ssp"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/label1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/label0"
+            android:gravity="center_horizontal"
+            android:text="Pronunciation"
+            android:textSize="@dimen/_32ssp"
+            android:textColor="@android:color/white"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_120sdp"
+            android:id="@+id/edittext"
+            android:hint="Type a word or Phrase..."
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/label1"
+            android:background="@drawable/edittext_bg_correct"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:maxLines="5"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            android:inputType="textMultiLine"/>
+
+        <ImageView
+            android:id="@+id/btn_help"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            app:layout_constraintTop_toBottomOf="@id/edittext"
+            app:layout_constraintStart_toStartOf="@id/edittext"
+            app:srcCompat="@drawable/ic_help_outline_white_24dp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginBottom="0dp"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/btn_info"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            app:layout_constraintTop_toBottomOf="@id/edittext"
+            app:layout_constraintStart_toEndOf="@id/btn_help"
+            app:srcCompat="@drawable/ic_info_outline_white_24dp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginBottom="0dp"
+            tools:ignore="ContentDescription"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="0dp"/>
+
+        <TableLayout
+            android:id="@+id/tts_selected_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/edittext"
+            app:layout_constraintTop_toBottomOf="@id/edittext"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginBottom="0dp">
+
+            <TableRow android:layout_height="wrap_content"
+                android:layout_width="wrap_content">
+                <TextView
+                    android:id="@+id/textview_selected_accent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/_11ssp" />
+            </TableRow>
+
+            <TableRow android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textview_selected_pitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@id/edittext"
+                    app:layout_constraintTop_toBottomOf="@id/textview_selected_accent"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/_11ssp" />
+            </TableRow>
+        </TableLayout>
+
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="wrap_content"
+            android:text="Pronounce"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/btn_outline_bg"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_14ssp"
+            android:drawablePadding="@dimen/_4sdp"
+            android:drawableStart="@drawable/ic_speaker_phone_white_24dp"
+            android:onClick="pronounceWord"
+            android:inputType="textCapWords"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tts_selected_settings"/>
+
+        <Button
+            android:id="@+id/btn_view_list"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="wrap_content"
+            android:text="View List"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/btn_outline_bg"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_14ssp"
+            android:drawablePadding="@dimen/_4sdp"
+            android:drawableStart="@drawable/ic_playlist_play_black_24dp"
+            android:onClick="viewList"
+            android:inputType="textCapWords"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include layout="@layout/bottom_sheet_tts_settings" />
+
+    <ImageButton
+        android:id="@+id/floating_btn"
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_45sdp"
+        app:srcCompat="@drawable/ic_settings_black_24dp"
+        android:background="@drawable/round_button"
+        android:padding="0dp"
+        android:scaleType="centerInside"
+        app:layout_anchor="@+id/bottom_sheet"
+        app:layout_anchorGravity="top|end"
+        android:layout_marginEnd="@dimen/_25sdp"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
